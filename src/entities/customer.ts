@@ -1,10 +1,10 @@
 import { Address } from './address';
 
 export class Customer {
-  _id: string;
-  _name: string;
-  _address!: Address;
-  _active: boolean = false;
+  private _id: string;
+  private _name: string;
+  private _address!: Address;
+  private _active: boolean = false;
 
   constructor(id: string, name: string) {
     this._id = id;
@@ -30,6 +30,7 @@ export class Customer {
 
   changeName(name: string) {
     this._name = name;
+    this.validate();
   }
 
   activate() {
