@@ -19,6 +19,12 @@ describe(Address.name, () => {
     );
   });
 
+  it('should throw error when number must be greater than zero', () => {
+    expect(() => new Address('1', -1, 'Springfield', 'USA')).toThrow(
+      'Number is required and number must be greater than zero'
+    );
+  });
+
   it('should throw error when zip is empty', () => {
     expect(() => new Address('1', 123, '', 'USA')).toThrow('Zip is required');
   });
