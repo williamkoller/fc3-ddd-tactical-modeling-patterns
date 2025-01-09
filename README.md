@@ -1,3 +1,5 @@
+[![Continuous Integration](https://github.com/williamkoller/fc3-ddd-tactical-modeling-patterns/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/williamkoller/fc3-ddd-tactical-modeling-patterns/actions/workflows/continuous-integration.yml)
+
 # Full Cycle 3.0
 
 ## DDD: Modelagem Tática e Patterns
