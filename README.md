@@ -54,3 +54,23 @@ Address:
 </p>
 
 # Domain Services
+- Um serviço de domínio é uma operação que cumpre uma tarefa
+ específica do domínio. Muitas vezes, a melhor indicação de que você deve
+ criar um serviço no modelo de domínio é quando a operação que você
+ precisa executar parace não se encixar como um método de um Agregador
+ (10) ou um Objeto de Valor (6).
+
+- Quando um processo ou transformação significativa no domínio não for uma
+responsabilidade natural da **entidade** ou **objeto de valor**, adicione
+uma operação ao modelo como uma interface autonôma declarada como um
+**serviço**. Define a interface baseada na linguagem do modelo de domínio e 
+certifique-se de que o nome da operação façá parte do **obiquitous language**.
+Torne o **serviço** sem estado.
+
+- Uma entidade pode realizar uma ação que vai afetar todas as entidades?
+- Como realizar uma operação em lote?
+
+- Cuidados:
+  - Quando houver muitos Domain Services em seu projeto, **talvez**, isso pode
+  indicar que seus agragados estão anêmicos.
+  - Domain Services são Stateless
