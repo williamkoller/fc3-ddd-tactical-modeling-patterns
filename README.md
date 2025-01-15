@@ -74,3 +74,15 @@ Torne o **serviço** sem estado.
   - Quando houver muitos Domain Services em seu projeto, **talvez**, isso pode
   indicar que seus agragados estão anêmicos.
   - Domain Services são Stateless
+
+# Repositories
+
+- Um repositório comumente se refere a um local de armazenamento, geralmente
+considerado um local de seguirança ou preservação dos itens nele armazenados.
+Quando você armazena algo em um repositório e repois retorna para recuperá-
+lo, você espera que ele **esteja no mesmo estado que estava quando você o 
+colocou lá**. Em algum momento, você pode optar por remover item armazenado do repositório.
+
+- Esses objetos semelhantes a coleções são persistência. Todo tipo
+**Agregado** persistente terá um **Repositório**. De um modo geral, existe uma
+releção **um-parta-um um tipo agragado e um Repositório**.

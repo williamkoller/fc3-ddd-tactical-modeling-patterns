@@ -7,9 +7,18 @@ export class Customer {
   private _active: boolean = false;
   private _rewardPoints: number = 0;
 
-  constructor(id: string, name: string) {
+  constructor(
+    id: string,
+    name: string,
+    address?: Address,
+    active?: boolean,
+    rewardPoints?: number
+  ) {
     this._id = id;
     this._name = name;
+    if (address) this._address = address;
+    if (active) this._active = active;
+    if (rewardPoints) this._rewardPoints = rewardPoints;
     this.validate();
   }
 
