@@ -2,26 +2,30 @@ import { Sequelize } from 'sequelize-typescript';
 import { ProductModel } from '../models/product-model';
 import { Product } from '../../../../domain/entities/product';
 import { ProductRepository } from './product-repository';
+import { SequelizeConnection } from '../sequelize-connection';
 
 describe('Product repository tests', () => {
-  let sequelize: Sequelize;
+  let sequelizeConnec: SequelizeConnection;
+
+  beforeAll(() => {
+    sequelizeConnec = SequelizeConnection.getInstance();
+  });
 
   beforeEach(async () => {
-    sequelize = new Sequelize({
-      dialect: 'sqlite',
-      storage: ':memory:',
-      logging: false,
-      sync: { force: true },
-    });
-
+    const sequelize = sequelizeConnec.getSequelize();
     sequelize.addModels([ProductModel]);
     await sequelize.sync();
   });
 
   afterEach(async () => {
-    await sequelize.close();
+    const sequelize = sequelizeConnec.getSequelize();
+    await sequelize.drop();
   });
 
+  afterAll(async () => {
+    const sequelize = sequelizeConnec.getSequelize();
+    await sequelize.close();
+  });
   it('should create a product', async () => {
     const productRepo = new ProductRepository();
     const product = new Product('1', 'Any name', 100);

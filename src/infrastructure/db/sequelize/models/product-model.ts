@@ -7,7 +7,7 @@ import {
   Table,
 } from 'sequelize-typescript';
 
-@Table({ tableName: 'products', timestamps: false })
+@Table({ tableName: 'products', timestamps: false, underscored: true })
 export class ProductModel extends Model {
   @PrimaryKey
   @Column(DataType.STRING)
