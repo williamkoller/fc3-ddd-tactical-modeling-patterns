@@ -3,23 +3,28 @@ import { CustomerModel } from '../models/customer-model';
 import { Customer } from '../../../../domain/entities/customer';
 import { Address } from '../../../../domain/entities/address';
 import { CustomerRepository } from './customer-repository';
+import { SequelizeConnection } from '../sequelize-connection';
 
 describe('Customer repository tests', () => {
-  let sequelize: Sequelize;
+  let sequelizeConnec: SequelizeConnection;
+
+  beforeAll(() => {
+    sequelizeConnec = SequelizeConnection.getInstance();
+  });
 
   beforeEach(async () => {
-    sequelize = new Sequelize({
-      dialect: 'sqlite',
-      storage: ':memory:',
-      logging: false,
-      sync: { force: true },
-    });
-
+    const sequelize = sequelizeConnec.getSequelize();
     sequelize.addModels([CustomerModel]);
     await sequelize.sync();
   });
 
   afterEach(async () => {
+    const sequelize = sequelizeConnec.getSequelize();
+    await sequelize.drop();
+  });
+
+  afterAll(async () => {
+    const sequelize = sequelizeConnec.getSequelize();
     await sequelize.close();
   });
 
