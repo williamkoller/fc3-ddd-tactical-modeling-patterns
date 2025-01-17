@@ -1,9 +1,9 @@
 {
   "scripts": {
+    "tsc": "tsc",
     "start": "node --import=tsx src/main.ts",
     "test": "npm run tsc -- --noEmit && jest",
-    "test:cov": "jest --coverage",
-    "tsc": "tsc"
+    "test:cov": "jest --coverage"
   },
   "type": "module",
   "devDependencies": {
