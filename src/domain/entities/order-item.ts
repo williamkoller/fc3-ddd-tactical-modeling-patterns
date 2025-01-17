@@ -36,6 +36,11 @@ export class OrderItem {
     return this._quantity;
   }
 
+  set quantity(quantity: number) {
+    this._quantity = quantity;
+    this.validate();
+  }
+
   get productId(): string {
     return this._productId;
   }
@@ -46,7 +51,8 @@ export class OrderItem {
 
   validate(): boolean {
     if (this._price <= 0) throw new Error('Price must be greater than zero');
-    if (this._quantity <= 0) throw new Error('Quantity must be greater than zero');
+    if (this._quantity <= 0)
+      throw new Error('Quantity must be greater than zero');
 
     return true;
   }
