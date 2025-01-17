@@ -3,7 +3,7 @@ import { Customer } from '../../../../domain/entities/customer';
 import { Order } from '../../../../domain/entities/order';
 import { OrderItem } from '../../../../domain/entities/order-item';
 import { Product } from '../../../../domain/entities/product';
-import { SequelizeConnection } from '../sequelize-connection';
+import { SequelizeConnection } from '../connection/sequelize-connection';
 import { CustomerModel } from '../models/customer-model';
 import { OrderItemModel } from '../models/order-item-model';
 import { OrderModel } from '../models/order-model';

@@ -3,7 +3,7 @@ import { CustomerModel } from '../models/customer-model';
 import { Customer } from '../../../../domain/entities/customer';
 import { Address } from '../../../../domain/entities/address';
 import { CustomerRepository } from './customer-repository';
-import { SequelizeConnection } from '../sequelize-connection';
+import { SequelizeConnection } from '../connection/sequelize-connection';
 
 describe('Customer repository tests', () => {
   let sequelizeConnec: SequelizeConnection;

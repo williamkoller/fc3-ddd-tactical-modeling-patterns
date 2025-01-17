@@ -2,7 +2,7 @@ import { Sequelize } from 'sequelize-typescript';
 import { ProductModel } from '../models/product-model';
 import { Product } from '../../../../domain/entities/product';
 import { ProductRepository } from './product-repository';
-import { SequelizeConnection } from '../sequelize-connection';
+import { SequelizeConnection } from '../connection/sequelize-connection';
 
 describe('Product repository tests', () => {
   let sequelizeConnec: SequelizeConnection;

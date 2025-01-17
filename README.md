@@ -86,3 +86,37 @@ colocou lá**. Em algum momento, você pode optar por remover item armazenado do
 - Esses objetos semelhantes a coleções são persistência. Todo tipo
 **Agregado** persistente terá um **Repositório**. De um modo geral, existe uma
 releção **um-parta-um um tipo agragado e um Repositório**.
+
+# Domain events
+
+- Use o evento de dominio para capturar uma ocorrência de algo que aconteceu no domínio.
+
+- A essência de um evento de domínio é que você o sua para capturar coisas que
+podem desencadear uma mudança no estado do aplicativo que você está
+desenvolvendo. Esses objetos de evento são processados para causar
+alterações no sistema e armazenados para fornecer um AuditLog.
+
+- Todo evento deve ser representando em uma ação realizado no passado.
+  - UserCreated
+  - OrderPlaced
+  - EmailSent
+
+## Domain events - Quando usar:
+- Normalmente um Domain Event deve ser utilizado quando queremos utilizar
+  outros Bounded Contexts de uma mudança de estado.
+
+## Domain events - Components
+
+- Event
+- Handler: Executa o processamento quando um evento é chamado
+- Event Dispatcher: Responsável por armazenar e executar os handlers de um
+evento quando ele for disparado.
+
+## Domain events - Dinâmica
+- Criar um 'Event Dispatcher'
+- Criar um 'Evento'
+- Criar um 'Handler' para o 'Evento'
+- Registrar o Evento, juntamente com o Handler no 'Event Dispatcher'
+
+Agora para disparar um evento, basta executar o método 'notify' do 'Event Dispatcher'.
+Nesse momento todos os Handlers registrados no evento serão executados.
