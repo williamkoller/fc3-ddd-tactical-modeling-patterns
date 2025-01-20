@@ -1,6 +1,6 @@
 import { Product } from '../../../../domain/product/entities/product';
 import { SequelizeConnection } from '../../../db/sequelize/connection/sequelize-connection';
-import { ProductModel } from '../../models/product-model';
+import { ProductModel } from '../../models/sequelize/product-model';
 import { ProductRepository } from './product-repository';
 
 describe('Product repository tests', () => {

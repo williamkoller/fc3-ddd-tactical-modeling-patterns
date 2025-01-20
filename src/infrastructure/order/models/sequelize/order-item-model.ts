@@ -9,7 +9,7 @@ import {
   Table,
 } from 'sequelize-typescript';
 import { OrderModel } from './order-model';
-import { ProductModel } from '../../product/models/product-model';
+import { ProductModel } from '../../../product/models/sequelize/product-model'
 
 @Table({ tableName: 'items', timestamps: false, underscored: true })
 export class OrderItemModel extends Model {

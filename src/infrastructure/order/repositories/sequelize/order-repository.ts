@@ -1,8 +1,8 @@
-import { Order } from '../../../domain/checkout/entities/order';
-import { OrderItem } from '../../../domain/checkout/entities/order-item';
-import { OrderRepositoryInterface } from '../../../domain/checkout/repositories/order-repository-interface';
-import { OrderItemModel } from '../models/order-item-model';
-import { OrderModel } from '../models/order-model';
+import { Order } from '../../../../domain/checkout/entities/order';
+import { OrderItem } from '../../../../domain/checkout/entities/order-item';
+import { OrderRepositoryInterface } from '../../../../domain/checkout/repositories/order-repository-interface';
+import { OrderItemModel } from '../../models/sequelize/order-item-model';
+import { OrderModel } from '../../models/sequelize/order-model';
 
 export class OrderRepository implements OrderRepositoryInterface {
   private orderModel: typeof OrderModel = OrderModel;

@@ -1,6 +1,6 @@
 import { Product } from '../../../../domain/product/entities/product';
 import { ProductRepositoryInterface } from '../../../../domain/product/repositories/product-repository-interface';
-import { ProductModel } from '../../models/product-model';
+import { ProductModel } from '../../models/sequelize/product-model';
 
 export class ProductRepository implements ProductRepositoryInterface {
   private productModel: typeof ProductModel = ProductModel;
