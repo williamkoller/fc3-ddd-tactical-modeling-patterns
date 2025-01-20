@@ -1,10 +1,10 @@
 import { EventInterface } from '../../shared/events/event-interface';
 
-export class ProductCreatedEvent implements EventInterface {
+export class ProductCreatedEvent<T> implements EventInterface {
   dataTimeOccurred: Date;
-  eventData: any;
+  eventData: T;
 
-  constructor(product: any) {
+  constructor(product: T) {
     this.dataTimeOccurred = new Date();
     this.eventData = product;
   }
