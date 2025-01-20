@@ -1,8 +1,8 @@
-import { Address } from './domain/entities/address';
-import { Customer } from './domain/entities/customer';
 import { randomUUID } from 'node:crypto';
-import { OrderItem } from './domain/entities/order-item';
-import { Order } from './domain/entities/order';
+import { Customer } from './domain/customer/entities/customer';
+import { Address } from './domain/customer/entities/address';
+import { OrderItem } from './domain/checkout/entities/order-item';
+import { Order } from './domain/checkout/entities/order';
 
 const customer = new Customer(randomUUID(), 'William');
 const address = new Address('Rua Luziano D', 123, '12345-678', 'Curitiba');

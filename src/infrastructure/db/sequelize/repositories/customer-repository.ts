@@ -1,7 +1,7 @@
 import { CustomerMapper } from '../../../../application/mappers/customer-mapper';
-import { Address } from '../../../../domain/entities/address';
-import { Customer } from '../../../../domain/entities/customer';
-import { CustomerRepositoryInterface } from '../../../../domain/repositories/customer-repository-interface';
+import { Address } from '../../../../domain/customer/entities/address';
+import { Customer } from '../../../../domain/customer/entities/customer';
+import { CustomerRepositoryInterface } from '../../../../domain/customer/repositories/customer-repository-interface';
 import { CustomerModel } from '../models/customer-model';
 
 export class CustomerRepository implements CustomerRepositoryInterface {
@@ -44,7 +44,7 @@ export class CustomerRepository implements CustomerRepositoryInterface {
   async findAll(): Promise<Customer[]> {
     const customers = await this.customerModel.findAll();
 
-    return customers.map(customer =>
+    return customers.map((customer) =>
       CustomerMapper.toDomain(
         new Customer(
           customer.id,

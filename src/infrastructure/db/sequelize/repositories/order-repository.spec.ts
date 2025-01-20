@@ -1,8 +1,8 @@
-import { Address } from '../../../../domain/entities/address';
-import { Customer } from '../../../../domain/entities/customer';
-import { Order } from '../../../../domain/entities/order';
-import { OrderItem } from '../../../../domain/entities/order-item';
-import { Product } from '../../../../domain/entities/product';
+import { Order } from '../../../../domain/checkout/entities/order';
+import { OrderItem } from '../../../../domain/checkout/entities/order-item';
+import { Address } from '../../../../domain/customer/entities/address';
+import { Customer } from '../../../../domain/customer/entities/customer';
+import { Product } from '../../../../domain/product/entities/product';
 import { SequelizeConnection } from '../connection/sequelize-connection';
 import { CustomerModel } from '../models/customer-model';
 import { OrderItemModel } from '../models/order-item-model';

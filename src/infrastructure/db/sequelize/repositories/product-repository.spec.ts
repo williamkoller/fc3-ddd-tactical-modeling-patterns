@@ -1,6 +1,6 @@
 import { Sequelize } from 'sequelize-typescript';
 import { ProductModel } from '../models/product-model';
-import { Product } from '../../../../domain/entities/product';
+import { Product } from '../../../../domain/product/entities/product';
 import { ProductRepository } from './product-repository';
 import { SequelizeConnection } from '../connection/sequelize-connection';
 

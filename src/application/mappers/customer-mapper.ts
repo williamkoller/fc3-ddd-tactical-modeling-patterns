@@ -1,5 +1,5 @@
-import { Address } from '../../domain/entities/address';
-import { Customer } from '../../domain/entities/customer';
+import { Address } from '../../domain/customer/entities/address';
+import { Customer } from '../../domain/customer/entities/customer';
 
 export class CustomerMapper {
   static toDomain(domain: Customer): Customer {
