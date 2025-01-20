@@ -9,7 +9,7 @@ export class CustomerFactory {
 
   static createWithAddress(name: string, address: Address): Customer {
     const customer = new Customer(randomUUID(), name);
-    customer.addAddress(address);
+    customer.changeAddress(address);
     return customer;
   }
 }

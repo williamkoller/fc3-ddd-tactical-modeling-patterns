@@ -1,9 +1,19 @@
+import { EventDispatcher } from '../../shared/events/event-dispatcher';
+import { CustomerAddressChangedEvent } from '../events/customer-address-changed-event';
 import { Address } from '../value-objects/address';
 import { Customer } from './customer';
 
+jest.mock('../../shared/events/event-dispatcher');
+
 describe(Customer.name, () => {
+  let eventDispatcher: EventDispatcher;
   const customer = new Customer('1', 'John Doe');
   const address = new Address('1', 123, 'Springfield', 'USA');
+
+  beforeEach(() => {
+    eventDispatcher = new EventDispatcher();
+    (EventDispatcher as jest.Mock).mockImplementation(() => eventDispatcher);
+  });
 
   it('should be defined', () => {
     expect(customer).toBeDefined();
@@ -28,9 +38,16 @@ describe(Customer.name, () => {
   });
 
   it('should activate customer', () => {
-    customer.addAddress(address);
-    customer.activate();
-    expect(customer.active).toBeTruthy();
+    const spy = jest.spyOn(eventDispatcher, 'notify');
+    const customer = new Customer(
+      '1',
+      'John Doe',
+      new Address('Street 1', 123, 'Springfield', 'USA')
+    );
+
+    customer.changeAddress(new Address('Street 2', 455, 'Springfield', 'USA'));
+
+    expect(spy).toHaveBeenCalledWith(expect.any(CustomerAddressChangedEvent));
   });
 
   it('should deactivate customer', () => {
@@ -46,7 +63,7 @@ describe(Customer.name, () => {
   });
 
   it('should add address', () => {
-    customer.addAddress(address);
+    customer.changeAddress(address);
     expect(customer.address).toBe(address);
   });
 

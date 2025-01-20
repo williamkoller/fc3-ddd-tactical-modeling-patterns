@@ -1,5 +1,7 @@
 import { Customer } from '../../customer/entities/customer';
+import { CustomerAddressChangedEvent } from '../../customer/events/customer-address-changed-event';
 import { CustomerCreatedEvent } from '../../customer/events/customer-created-event';
+import { EnviaConsoleLogHandler } from '../../customer/events/handlers/envia-console.log-handler';
 import { SendEmailWhenCustomerIsCreatedHandler } from '../../customer/events/handlers/send-email-when-customer-is-created-handler';
 import { Address } from '../../customer/value-objects/address';
 import { SendEmailWhenProductIsCreatedHandler } from '../../product/events/handlers/send-email-when-product-is-created-handler';
@@ -147,7 +149,7 @@ describe('Domain events tests', () => {
       const customer = new Customer('1', 'John Doe');
       const address = new Address('1', 123, 'Springfield', 'USA');
 
-      customer.addAddress(address);
+      customer.changeAddress(address);
 
       const customerCreatedEvent = new CustomerCreatedEvent(customer);
 
@@ -155,4 +157,85 @@ describe('Domain events tests', () => {
       expect(spyEventHandler).toHaveBeenCalledTimes(1);
     });
   });
+
+  describe('CustomerAddressChangedEvent', () => {
+
+    it('should register an event handler', () => {
+      const eventDispatcher = new EventDispatcher();
+
+      const eventHandler = new EnviaConsoleLogHandler();
+
+      eventDispatcher.register('CustomerAddressChangedEvent', eventHandler);
+
+      expect(
+        eventDispatcher.getEventHandlers['CustomerAddressChangedEvent']
+      ).toBeDefined();
+      expect(
+        eventDispatcher.getEventHandlers['CustomerAddressChangedEvent'].length
+      ).toBe(1);
+      expect(
+        eventDispatcher.getEventHandlers['CustomerAddressChangedEvent'][0]
+      ).toMatchObject(eventHandler);
+    });
+
+    it('should unregister an event handler', () => {
+      const eventDispatcher = new EventDispatcher();
+
+      const eventHandler = new EnviaConsoleLogHandler();
+
+      eventDispatcher.register('CustomerAddressChangedEvent', eventHandler);
+
+      eventDispatcher.unregister('CustomerAddressChangedEvent', eventHandler);
+
+      expect(
+        eventDispatcher.getEventHandlers['CustomerAddressChangedEvent']
+      ).toBeDefined();
+      expect(
+        eventDispatcher.getEventHandlers['CustomerAddressChangedEvent'].length
+      ).toBe(0);
+    });
+
+    it('should unregister all event handlers', () => {
+      const eventDispatcher = new EventDispatcher();
+
+      const eventHandler = new EnviaConsoleLogHandler();
+
+      eventDispatcher.register('CustomerAddressChangedEvent', eventHandler);
+
+      eventDispatcher.unregisterAll();
+
+      expect(
+        eventDispatcher.getEventHandlers['CustomerAddressChangedEvent']
+      ).toBeUndefined();
+      expect(Object.keys(eventDispatcher.getEventHandlers).length).toBe(0);
+    });
+    it('should notify all event handlers', () => {
+      const eventDispatcher = new EventDispatcher();
+
+      const eventHandler = new EnviaConsoleLogHandler();
+      const spyEventHandler = jest.spyOn(eventHandler, 'handle');
+
+      eventDispatcher.register('CustomerAddressChangedEvent', eventHandler);
+
+      expect(
+        eventDispatcher.getEventHandlers['CustomerAddressChangedEvent'][0]
+      ).toMatchObject(eventHandler);
+
+      const customer = new Customer('1', 'John Doe');
+      const address = new Address('1', 123, 'Springfield', 'USA');
+
+      customer.changeAddress(address);
+
+      const customerAddressChangedEvent = new CustomerAddressChangedEvent({
+        id: customer.id,
+        name: customer.name,
+        address: customer.address,
+      });
+
+      eventDispatcher.notify(customerAddressChangedEvent);
+      expect(spyEventHandler).toHaveBeenCalledTimes(1);
+    });
+  });
+
+
 });

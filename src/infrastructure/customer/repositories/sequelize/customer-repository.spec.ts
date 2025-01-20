@@ -31,7 +31,7 @@ describe('Customer repository tests', () => {
     const customerRepo = new CustomerRepository();
     const address = new Address('Any street', 300, 'Any zip code', 'Any city');
     const customer = new Customer('1', 'Any name');
-    customer.addAddress(address);
+    customer.changeAddress(address);
     customer.activate();
     customer.addRewardPoints(100);
     await customerRepo.create(customer);
@@ -54,7 +54,7 @@ describe('Customer repository tests', () => {
     const customerRepo = new CustomerRepository();
     const address = new Address('Any street', 300, 'Any zip code', 'Any city');
     const customer = new Customer('1', 'Any name');
-    customer.addAddress(address);
+    customer.changeAddress(address);
     await customerRepo.create(customer);
 
     customer.changeName('New name');
@@ -80,7 +80,7 @@ describe('Customer repository tests', () => {
     const customerRepo = new CustomerRepository();
     const customer = new Customer('1', 'Any name');
     const address = new Address('Any street', 300, 'Any zip code', 'Any city');
-    customer.addAddress(address);
+    customer.changeAddress(address);
 
     await customerRepo.create(customer);
 

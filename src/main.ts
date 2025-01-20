@@ -7,7 +7,7 @@ import { Address } from './domain/customer/value-objects/address';
 const customer = new Customer(randomUUID(), 'William');
 const address = new Address('Rua Luziano D', 123, '12345-678', 'Curitiba');
 
-customer.addAddress(address);
+customer.changeAddress(address);
 
 console.log({
   id: customer.id,
@@ -16,7 +16,7 @@ console.log({
 });
 
 customer.changeName('William Koller');
-customer.addAddress(
+customer.changeAddress(
   new Address('Rua Edmundo S', 432, '83005-000', 'São José dos Pinhais')
 );
 customer.activate();

@@ -1,11 +1,10 @@
 import { EventHandlerInterface } from '../../../shared/events/event-handler-interface';
-import { EventInterface } from '../../../shared/events/event-interface';
 import { CustomerCreatedEvent } from '../customer-created-event';
 
-export class SendEmailWhenCustomerIsCreatedHandler
+export class EnviaConsoleLog2Handler
   implements EventHandlerInterface<CustomerCreatedEvent>
 {
-  handle(event: EventInterface): void {
-    console.log(`Send email ${JSON.stringify(event)}`);
+  handle(event: CustomerCreatedEvent): void {
+    console.log('Esse é o segundo console.log do evento: CustomerCreated');
   }
 }

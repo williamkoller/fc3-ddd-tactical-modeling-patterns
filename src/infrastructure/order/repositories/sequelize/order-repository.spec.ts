@@ -45,7 +45,7 @@ describe('Order repository tests', () => {
     const address = new Address('Any street', 300, 'Any zip code', 'Any city');
     const customer = new Customer('1', 'Any name');
 
-    customer.addAddress(address);
+    customer.changeAddress(address);
     await customerRepo.create(customer);
 
     const productRepo = new ProductRepository();
@@ -91,7 +91,7 @@ describe('Order repository tests', () => {
     const address = new Address('Any street', 300, 'Any zip code', 'Any city');
     const customer = new Customer('1', 'Any name');
 
-    customer.addAddress(address);
+    customer.changeAddress(address);
     await customerRepo.create(customer);
 
     const productRepo = new ProductRepository();
@@ -120,7 +120,7 @@ describe('Order repository tests', () => {
     const address = new Address('Any street', 300, 'Any zip code', 'Any city');
     const customer = new Customer('1', 'Any name');
 
-    customer.addAddress(address);
+    customer.changeAddress(address);
     await customerRepo.create(customer);
 
     const productRepo = new ProductRepository();
@@ -149,7 +149,7 @@ describe('Order repository tests', () => {
     const address = new Address('Any street', 300, 'Any zip code', 'Any city');
     const customer = new Customer('1', 'Any name');
 
-    customer.addAddress(address);
+    customer.changeAddress(address);
     await customerRepo.create(customer);
 
     const productRepo = new ProductRepository();
@@ -197,7 +197,7 @@ describe('Order repository tests', () => {
     const address = new Address('Any street', 300, 'Any zip code', 'Any city');
     const customer = new Customer('1', 'Any name');
 
-    customer.addAddress(address);
+    customer.changeAddress(address);
     await customerRepo.create(customer);
 
     const productRepo = new ProductRepository();

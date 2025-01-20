@@ -1,6 +1,7 @@
 import { EventInterface } from '../../shared/events/event-interface';
+import { Address } from '../value-objects/address';
 
-export class CustomerCreatedEvent implements EventInterface {
+export class CustomerAddressChangedEvent implements EventInterface {
   dataTimeOccurred: Date;
   eventData: any;
 
