@@ -1,8 +1,8 @@
 import { randomUUID } from 'node:crypto';
 import { Customer } from './domain/customer/entities/customer';
-import { Address } from './domain/customer/entities/address';
 import { OrderItem } from './domain/checkout/entities/order-item';
 import { Order } from './domain/checkout/entities/order';
+import { Address } from './domain/customer/value-objects/address';
 
 const customer = new Customer(randomUUID(), 'William');
 const address = new Address('Rua Luziano D', 123, '12345-678', 'Curitiba');

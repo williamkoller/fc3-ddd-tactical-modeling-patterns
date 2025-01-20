@@ -1,4 +1,4 @@
-import { Product } from '../../domain/product/entities/product';
+import { Product } from '../../../domain/product/entities/product';
 
 export class ProductMapper {
   static toDomain(domain: Product): Product {

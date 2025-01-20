@@ -1,5 +1,5 @@
-import { Address } from '../../domain/customer/entities/address';
-import { Customer } from '../../domain/customer/entities/customer';
+import { Customer } from '../../../domain/customer/entities/customer';
+import { Address } from '../../../domain/customer/value-objects/address';
 
 export class CustomerMapper {
   static toDomain(domain: Customer): Customer {

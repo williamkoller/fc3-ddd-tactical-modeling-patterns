@@ -9,8 +9,8 @@ import {
   PrimaryKey,
   Table,
 } from 'sequelize-typescript';
-import { CustomerModel } from './customer-model';
 import { OrderItemModel } from './order-item-model';
+import { CustomerModel } from '../../customer/models/customer-model';
 
 @Table({ tableName: 'orders', timestamps: false, underscored: true })
 export class OrderModel extends Model {

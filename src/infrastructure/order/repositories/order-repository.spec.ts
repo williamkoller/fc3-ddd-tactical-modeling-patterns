@@ -1,16 +1,16 @@
-import { Order } from '../../../../domain/checkout/entities/order';
-import { OrderItem } from '../../../../domain/checkout/entities/order-item';
-import { Address } from '../../../../domain/customer/entities/address';
-import { Customer } from '../../../../domain/customer/entities/customer';
-import { Product } from '../../../../domain/product/entities/product';
-import { SequelizeConnection } from '../connection/sequelize-connection';
-import { CustomerModel } from '../models/customer-model';
+import { Order } from '../../../domain/checkout/entities/order';
+import { OrderItem } from '../../../domain/checkout/entities/order-item';
+import { Customer } from '../../../domain/customer/entities/customer';
+import { Address } from '../../../domain/customer/value-objects/address';
+import { Product } from '../../../domain/product/entities/product';
+import { CustomerModel } from '../../customer/models/customer-model';
+import { CustomerRepository } from '../../customer/repositories/customer-repository';
+import { SequelizeConnection } from '../../db/sequelize/connection/sequelize-connection';
+import { ProductModel } from '../../product/models/product-model';
+import { ProductRepository } from '../../product/repositories/sequelize/product-repository';
 import { OrderItemModel } from '../models/order-item-model';
 import { OrderModel } from '../models/order-model';
-import { ProductModel } from '../models/product-model';
-import { CustomerRepository } from './customer-repository';
 import { OrderRepository } from './order-repository';
-import { ProductRepository } from './product-repository';
 
 describe('Order repository tests', () => {
   let sequelizeConnec: SequelizeConnection;

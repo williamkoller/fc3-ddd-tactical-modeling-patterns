@@ -1,6 +1,6 @@
-import { Order } from '../../../../domain/checkout/entities/order';
-import { OrderItem } from '../../../../domain/checkout/entities/order-item';
-import { OrderRepositoryInterface } from '../../../../domain/checkout/repositories/order-repository-interface';
+import { Order } from '../../../domain/checkout/entities/order';
+import { OrderItem } from '../../../domain/checkout/entities/order-item';
+import { OrderRepositoryInterface } from '../../../domain/checkout/repositories/order-repository-interface';
 import { OrderItemModel } from '../models/order-item-model';
 import { OrderModel } from '../models/order-model';
 

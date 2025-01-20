@@ -1,9 +1,9 @@
 import { Sequelize } from 'sequelize-typescript';
 import { CustomerModel } from '../models/customer-model';
 import { CustomerRepository } from './customer-repository';
-import { SequelizeConnection } from '../connection/sequelize-connection';
-import { Address } from '../../../../domain/customer/entities/address';
-import { Customer } from '../../../../domain/customer/entities/customer';
+import { SequelizeConnection } from '../../db/sequelize/connection/sequelize-connection';
+import { Address } from '../../../domain/customer/value-objects/address';
+import { Customer } from '../../../domain/customer/entities/customer';
 
 describe('Customer repository tests', () => {
   let sequelizeConnec: SequelizeConnection;
