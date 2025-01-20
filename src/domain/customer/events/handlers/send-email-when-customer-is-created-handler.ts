@@ -2,7 +2,7 @@ import { EventHandlerInterface } from '../../../shared/events/event-handler-inte
 import { EventInterface } from '../../../shared/events/event-interface';
 import { CustomerCreatedEvent } from '../customer-created-event';
 
-export class SendEmailWhenProductIsCreatedHandler
+export class SendEmailWhenCustomerIsCreatedHandler
   implements EventHandlerInterface<CustomerCreatedEvent>
 {
   handle(event: EventInterface): void {

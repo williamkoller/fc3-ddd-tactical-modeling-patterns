@@ -123,7 +123,7 @@ Nesse momento todos os Handlers registrados no evento serão executados.
 
 ## Módulos
 
-Em um contexto DDD, Módulos em seu modelo servem como contêineres
+- Em um contexto DDD, Módulos em seu modelo servem como contêineres
 nomeados para classes de objetos de domínio que são altamente coesas 
 entre si. O objeto deve ser baixo acoplamento entre as classes que estão em Módulos 
 diferentes. Como os Módulos usados no DDD não são compartimentos
@@ -135,3 +135,13 @@ adequedamentos os Módulos.
 - Um ou mais agregados devem estar juntos somente se fazem sentido
 - Organizado pelo domínio/subdomínio e não pelo tipo de objetos
 - Devem respeitar a mesma divisão quando estão em camadas diferentes
+
+## Factories
+
+- Desloque a responsabilidade de criar instâncias de objetos complexos e 
+**Agragedos** para um objeto separado, que pode não ter responsabilidade no
+modelo de domínio, mas ainda faz parte do design de domínio. Forneça uma
+interface que encapsule toda a criação complexa e que nào exija que o cliente
+faça referência ás classes concretas dos objetos que estão sendo instanciados.
+Crie **Agregados** interios de uma única vez, reforçando suas invariantes.
+
