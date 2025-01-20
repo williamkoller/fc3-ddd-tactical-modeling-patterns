@@ -1,4 +1,4 @@
-import { RepositoryInterface } from '../../repositories/repository-interface';
+import { RepositoryInterface } from '../../shared/repositories/repository-interface';
 import { Product } from '../entities/product';
 
 export interface ProductRepositoryInterface

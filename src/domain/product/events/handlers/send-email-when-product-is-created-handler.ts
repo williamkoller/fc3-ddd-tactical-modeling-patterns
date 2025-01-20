@@ -1,5 +1,5 @@
-import { EventHandlerInterface } from '../../../events/shared/event-handler-interface';
-import { EventInterface } from '../../../events/shared/event-interface';
+import { EventHandlerInterface } from '../../../shared/events/event-handler-interface';
+import { EventInterface } from '../../../shared/events/event-interface';
 import { ProductCreatedEvent } from '../product-created-event';
 
 export class SendEmailWhenProductIsCreatedHandler
