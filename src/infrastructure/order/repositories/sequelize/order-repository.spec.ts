@@ -5,7 +5,7 @@ import { Address } from '../../../../domain/customer/value-objects/address';
 import { Product } from '../../../../domain/product/entities/product';
 import { CustomerModel } from '../../../customer/models/sequelize/customer-model';
 import { CustomerRepository } from '../../../customer/repositories/sequelize/customer-repository';
-import { SequelizeConnection } from '../../../db/sequelize/connection/sequelize-connection';
+import { SequelizeConnection } from '../../../db/connection/sequelize/sequelize-connection';
 import { ProductModel } from '../../../product/models/sequelize/product-model';
 import { ProductRepository } from '../../../product/repositories/sequelize/product-repository';
 import { OrderItemModel } from '../../models/sequelize/order-item-model';

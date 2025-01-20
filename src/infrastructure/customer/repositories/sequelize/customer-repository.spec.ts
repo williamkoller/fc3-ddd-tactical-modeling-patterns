@@ -1,6 +1,6 @@
 import { Customer } from '../../../../domain/customer/entities/customer';
 import { Address } from '../../../../domain/customer/value-objects/address';
-import { SequelizeConnection } from '../../../db/sequelize/connection/sequelize-connection';
+import { SequelizeConnection } from '../../../db/connection/sequelize/sequelize-connection';
 import { CustomerModel } from '../../models/sequelize/customer-model';
 import { CustomerRepository } from './customer-repository';
 
